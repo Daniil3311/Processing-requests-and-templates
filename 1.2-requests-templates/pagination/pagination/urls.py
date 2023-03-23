@@ -16,10 +16,10 @@ Including another URLconf
 
 from django.urls import path, include
 
+from pagination.stations.views import bus_stations
 
+urlpatterns = {
+    path('', include('stations.urls')),
+    path('bus/', bus_stations)
 
-urlpatterns = [
-    path('', include('stations.urls'))
-    #path('bus/',bus_stations),
-
-]
+}

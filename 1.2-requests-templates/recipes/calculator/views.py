@@ -2,29 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-def omlet(request):
-    template_name = 'calculator/index.html'
-    servings=int(request.GET['servings'])
-    context = {'recipe': {
-        'молоко, л': (f'{0.1*servings}'),
-        'яйца, шт': (f'{2*servings}'),
-        'соль, ч.л.': (f'{0.5*servings}'),
-    },
-    }
-    return render(request, template_name, context)
-
-
-def pasta(request):
-    template_name = 'calculator/index.html'
-    servings = int(request.GET['servings'])
-    context={'recipe': {
-        'макароны, г': (f'{0.3*servings}'),
-        'сыр, г': (f'{0.05*servings}'),
-    }
-    }
-    return render(request, template_name, context)
-
-
 DATA = {
     'omlet': {
         'яйца, шт': 2,
@@ -41,8 +18,47 @@ DATA = {
         'сыр, ломтик': 1,
         'помидор, ломтик': 1,
     },
-    # можете добавить свои рецепты ;)
+
 }
+
+
+def dish_views(request, dish):
+
+    if dish in DATA:
+        data = DATA[dish]
+        servings = request.GET.get('servings', None)
+
+        if servings:
+            result = dict()
+            for item, value in data.items():
+                new_value = value * int(servings)
+                result[item] = new_value
+            context = {
+                'recipe_name': dish,
+                'recipe': result
+            }
+        else:
+            context = {
+                'recipe_name': dish,
+                'recipe': data
+            }
+
+    else:
+        context = None
+
+    return render(request, template_name='calculator/index.html', context=context)
+
+
+def home_view(request):
+
+    all_recipes = list(DATA.keys())
+    context = {'all_recipes': all_recipes}
+
+    return render(request, template_name='home/home.html', context=context)
+
+
+
+
 
 # Напишите ваш обработчик. Используйте DATA как источник данных
 # Результат - render(request, 'calculator/index.html', context)

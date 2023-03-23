@@ -16,10 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from calculator.views import omlet, pasta
+from calculator.views import dish_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pasta/', pasta),
-    path('omlet/', omlet,)
+    path('<dish>/', dish_views, name='dish'),
 ]
