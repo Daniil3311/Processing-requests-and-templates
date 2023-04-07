@@ -23,28 +23,15 @@ DATA = {
 
 
 def dish_views(request, dish):
-
-    if dish in DATA:
-        data = DATA[dish]
-        servings = request.GET.get('servings', None)
-
+    servings = request.GET.get('servings')
+    new_data = {}
+    for ing, amo in DATA[dish].items():
         if servings:
-            result = dict()
-            for item, value in data.items():
-                new_value = value * int(servings)
-                result[item] = new_value
-            context = {
-                'recipe_name': dish,
-                'recipe': result
-            }
-        else:
-            context = {
-                'recipe_name': dish,
-                'recipe': data
-            }
-
-    else:
-        context = None
+            new_data[ing] = amo * (int(servings))
+            context = {'recipe': new_data}
+        if not servings:
+            new_data[ing]=amo
+            context = {'recipe': new_data}
 
     return render(request, template_name='calculator/index.html', context=context)
 
