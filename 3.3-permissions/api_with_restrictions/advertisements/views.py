@@ -14,7 +14,7 @@ class AdvertisementViewSet(ModelViewSet):
     #   сериализаторов и фильтров
     queryset = Advertisement.objects.all()
     serializer_class = AdvertisementSerializer
-    #filterset_fields = ['creator',]
+    permission_classes = [IsOwnerOrReadOnly]
     filterset_class = AdvertisementFilter
     filter_backends = [DjangoFilterBackend]
 
