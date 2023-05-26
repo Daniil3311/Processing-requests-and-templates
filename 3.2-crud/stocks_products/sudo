@@ -1,0 +1,12 @@
+[Unit]
+Description=Service for Gunicorn
+After=network.target
+
+
+[Service]
+User=daniil
+Group=www-data
+WorkingDirectory=/home/daniil/Processing-requests-and-templates/3.2-crud
+ExecStart=/home/daniil/Processing-requests-and-templates/3.2-crud/env/bin/gunicorn --workers 3 --bind unix:/home/daniil/Processing-requests-and-templates/3.2-crud/stocks_products/project.sock stocks_products.wsgi:application
+[Install]
+WantedBy=multi-user.target
