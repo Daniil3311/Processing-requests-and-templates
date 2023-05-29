@@ -3,8 +3,8 @@ from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
 
 
-from logistic.models import Product, Stock
-from logistic.serializers import ProductSerializer, StockSerializer
+from .models import Product, Stock
+from .serializers import ProductSerializer, StockSerializer
 
 
 class ProductViewSet(ModelViewSet):
@@ -23,5 +23,3 @@ class StockViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['products', ]
     search_fields = ['title']
-
-
