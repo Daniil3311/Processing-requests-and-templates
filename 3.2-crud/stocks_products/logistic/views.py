@@ -23,5 +23,3 @@ class StockViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['products', ]
     search_fields = ['title']
-
-
