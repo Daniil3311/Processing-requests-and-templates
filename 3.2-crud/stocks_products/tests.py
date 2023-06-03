@@ -1,7 +1,6 @@
 from unittest import TestCase
 from rest_framework.test import APIClient
-import 
-osos.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+import os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 import django
 django.setup()
 
