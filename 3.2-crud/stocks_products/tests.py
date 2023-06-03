@@ -1,6 +1,6 @@
 from unittest import TestCase
 from rest_framework.test import APIClient
-from stocks_products.wsgi import *
+from stocks_products.settings import *
 
 
 
