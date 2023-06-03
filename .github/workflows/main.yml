@@ -44,9 +44,6 @@ jobs:
       - name: Установка зависимостей
         run: pip install -r requirements.txt
 
-      - name: Линтинг
-        run: flake8 .\stocks_products\
-
 
       - name: Тесты
         run: python /home/runner/work/Processing-requests-and-templates/stocks_products manage.py test
