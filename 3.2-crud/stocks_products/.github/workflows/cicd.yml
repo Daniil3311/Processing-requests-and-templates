@@ -49,7 +49,7 @@ jobs:
 
 
       - name: Тесты
-        run: python manage.py test
+        run: python /home/runner/work/Processing-requests-and-templates/stocks_products manage.py test
         env:
           SECRET_KEY: ${{ env.SECRET_KEY }}
           DEBUG: ${{ env.DEBUG }}
