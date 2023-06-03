@@ -1,6 +1,9 @@
 from unittest import TestCase
 from rest_framework.test import APIClient
-from stocks_products.wsgi import *
+import 
+osos.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+import django
+django.setup()
 
 
 class TestSampleView(TestCase):
