@@ -57,6 +57,3 @@ class StockSerializer(serializers.ModelSerializer):
                           'price': element['price']}
             )
         return stock
-
-
-
