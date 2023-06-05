@@ -1,6 +1,8 @@
 from unittest import TestCase
 from rest_framework.test import APIClient
-from stocks_products.settings import *
+import os
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
 
 
