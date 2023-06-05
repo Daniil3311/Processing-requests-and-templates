@@ -1,0 +1,6 @@
+#!bin/bash/expect
+spawn /home/daniil/Processing-requests-and-templates/3.2-crud/stocks_products/deploy.sh
+expect "password"
+send -- "123Qwezxcasd\r"
+expect eof
+
