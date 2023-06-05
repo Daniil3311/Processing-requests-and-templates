@@ -6,6 +6,7 @@ import django
 django.setup()
 
 
+
 class TestSampleView(TestCase):
     def test_view_200(self):
         url = 'api/v1/test'
