@@ -2,6 +2,7 @@ from unittest import TestCase
 from rest_framework.test import APIClient
 import os
 import django
+from django.conf import settings
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'stocks_products.settings'
 django.setup()
