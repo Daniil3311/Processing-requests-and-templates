@@ -2,7 +2,7 @@ from unittest import TestCase
 from rest_framework.test import APIClient
 import os
 import django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', '3.2-crud.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'stocks_products.settings')
 django.setup()
 
 
