@@ -3,6 +3,7 @@ from rest_framework.test import APIClient
 import os
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'stocks_products.settings'
+django.setup()
 
 
 
