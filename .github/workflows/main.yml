@@ -48,7 +48,7 @@ jobs:
       - name: Тесты
         run: python 3.2-crud/stocks_products/tests.py manage.py
         env:
-          SECRET_KEY: ${{ env.SECRET_KEY }}
+        
           DEBUG: ${{ env.DEBUG }}
           ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
           DB_ENGINE: ${{ env.DB_ENGINE }}
@@ -57,6 +57,7 @@ jobs:
           DB_PASSWORD: ${{ env.DB_PASSWORD }}
           DB_HOST: ${{ env.DB_HOST }}
           DB_PORT: ${{ env.DB_PORT }}
+          SECRET_KEY: ${{ env.SECRET_KEY }}
 
 
       - name: Деплой
