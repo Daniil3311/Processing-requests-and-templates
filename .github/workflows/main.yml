@@ -46,7 +46,7 @@ jobs:
 
 
       - name: Тесты
-        run: python 3.2-crud/stocks_products/tests.py
+        run: python 3.2-crud/stocks_products/tests.py manage.py
         env:
           DEBUG: ${{ env.DEBUG }}
           ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
