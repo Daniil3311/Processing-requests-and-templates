@@ -1,5 +1,9 @@
 from unittest import TestCase
 from rest_framework.test import APIClient
+from stocks_products.settings import *
+
+
+
 
 
 class TestSampleView(TestCase):
