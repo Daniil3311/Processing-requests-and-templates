@@ -4,5 +4,8 @@ psycopg2-binary
 python-dotenv
 flake8
 django-filter
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 38c2ea57f0cd174e5403540aeed9619960a0567b

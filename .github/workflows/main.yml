@@ -46,9 +46,8 @@ jobs:
 
 
       - name: Тесты
-        run: python 3.2-crud/stocks_products/tests.py manage.py tests
+        run: python 3.2-crud/stocks_products/manage.py test
         env:
-          SECRET_KEY: ${{ env.SECRET_KEY }}
           DEBUG: ${{ env.DEBUG }}
           ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
           DB_ENGINE: ${{ env.DB_ENGINE }}
@@ -57,6 +56,8 @@ jobs:
           DB_PASSWORD: ${{ env.DB_PASSWORD }}
           DB_HOST: ${{ env.DB_HOST }}
           DB_PORT: ${{ env.DB_PORT }}
+          SECRET_KEY: ${{ env.SECRET_KEY }}
+
 
       - name: Деплой
         uses: appleboy/ssh-action@master
@@ -64,9 +65,5 @@ jobs:
           host: ${{ secrets.HOST_NAME }}
           username: ${{ secrets.HOST_USER }}
           password: ${{ secrets.HOST_PASSWORD }}
-          script: |
-            cd /home/daniil/Processing-requests-and-templates/3.2-crud/stocks_products
-            git pull origin ci
-            source env/bin/activate
-            python manage.py migrate
-            sudo systemctl restart gunicorn
+          script: expect /home/daniil/Processing-requests-and-templates/3.2-crud/stocks_products/deploy.exp
+    
